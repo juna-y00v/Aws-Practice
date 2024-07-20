@@ -4,6 +4,8 @@ import junay00v.aws_practice1.domain.Member;
 import junay00v.aws_practice1.repository.MemberRepository;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Transactional
 public class MemberService {
 
@@ -26,4 +28,9 @@ public class MemberService {
                     throw new IllegalStateException("이미 존재하는 회원입니다.");
                 });
     }
+
+    public List<Member> findMembers() {
+        return memberRepository.findALl();
+    }
+
 }

@@ -28,4 +28,10 @@ public class JpaMemberRepository implements MemberRepository {
 
         return result.stream().findAny();
     }
+
+    @Override
+    public List<Member> findALl() {
+        return em.createQuery("select m from Member m", Member.class)
+                .getResultList();
+    }
 }
